@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FBFFF3;
+  --foreground: #111827;
+  --primary: #ABFF00;
+  --accent: #111827;
+  --alt-primary: #D8FF00;
+  --light-accent: #3D578D;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-alt-primary: var(--alt-primary);
+  --color-light-accent: var(--light-accent);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-bricolage-grotesque);
+  --font-serif: var(--font-instrument-serif);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Noise Texture */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.3' fill='gray'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+
+/* Gradient Animation */
+@keyframes gradient-rise {
+  0% {
+    transform: translateY(10%);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10%);
+    opacity: 0.7;
+  }
+}
+
+@keyframes hero-gradient-rise {
+  0% {
+    transform: translateY(40%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(20%) scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10%) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-hero-gradient-rise {
+  animation: hero-gradient-rise 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+
+
+.animate-gradient-rise {
+  animation: gradient-rise 3s ease-out forwards;
+}
+
+
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes wingLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-280px) translateY(0) rotate(-15deg);
+  }
+}
+
+@keyframes wingRight {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(280px) translateY(0) rotate(15deg);
+  }
+}
+
+/* Responsive animation adjustments */
+@media (min-width: 768px) {
+  @keyframes wingLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-380px) translateY(0) rotate(-15deg);
+    }
+  }
+
+  @keyframes wingRight {
+    0% {
+      opacity: 0;
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(380px) translateY(0) rotate(15deg);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  @keyframes wingLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-450px) translateY(0) rotate(-15deg);
+    }
+  }
+
+  @keyframes wingRight {
+    0% {
+      opacity: 0;
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(450px) translateY(0) rotate(15deg);
+    }
+  }
+}
+
+.animate-pop-up {
+  opacity: 0;
+  animation: popUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-wing-left {
+  opacity: 0;
+  animation: wingLeft 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+.animate-wing-right {
+  opacity: 0;
+  animation: wingRight 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.5s;
+}
