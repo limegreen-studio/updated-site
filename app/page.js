@@ -2,6 +2,8 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import LottieSection from './components/LottieSection';
 import TestimonialsSection from './components/TestimonialsSection';
+import StartShippingSection from './components/StartShippingSection';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
@@ -9,6 +11,8 @@ export default function Home() {
       <Hero />
       <LottieSection />
       <TestimonialsSection />
+      <StartShippingSection />
+      <Footer />
     </div>
   );
 }

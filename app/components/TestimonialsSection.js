@@ -3,7 +3,7 @@ import { CardStack } from './ui/card-stack';
 import { cn } from '@/lib/utils';
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-
+import { Meteors } from "@/components/ui/meteors"
 // Highlight component for testimonials
 export const Highlight = ({ children, className }) => {
   return (
@@ -82,10 +82,9 @@ export default function TestimonialsSection() {
   // Reveal cards based on scroll position
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (latest) => {
-      // Map scroll progress to number of visible cards
-      // Each card requires ~20% of scroll progress
+      // Slower reveal — each card needs more scroll (~12% per card instead of ~20%)
       const newVisibleCards = Math.min(
-        Math.floor(latest * (CARDS.length + 2)),
+        Math.floor(latest * (CARDS.length + 0.8)),
         CARDS.length
       );
       setVisibleCards(newVisibleCards);
@@ -97,18 +96,22 @@ export default function TestimonialsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-[300vh] flex flex-col items-center justify-start py-20 px-6 md:px-12 lg:px-16"
+      className="relative w-full min-h-[500vh] flex flex-col items-center justify-start py-20 px-6 md:px-12 lg:px-16"
       style={{
-        background: 'linear-gradient(to bottom, #111827 0%, #111827 25%, #1e293b 40%, #475569 55%, #94a3b8 70%, #e2e8f0 80%, #ffffff 100%)',
+        background:
+          'linear-gradient(to bottom, #111827 0%, #111827 55%, #1e293b 70%, #475569 80%, #94a3b8 88%, #e2e8f0 94%, #ffffff 100%)',
       }}
     >
       <div className="sticky top-20 w-full max-w-7xl mx-auto space-y-12 md:space-y-20">
+      
+      <Meteors minDelay={0} maxDelay={0.1} maxDuration={15}/>
+
         {/* Section Header */}
         <motion.div
           style={{
             color: useTransform(
               scrollYProgress,
-              [0, 0.25, 0.6, 0.85, 1],
+              [0, 0.6, 0.8, 0.9, 1],
               ['#ffffff', '#ffffff', '#64748b', '#334155', '#1e293b']
             ),
           }}
@@ -119,7 +122,7 @@ export default function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold"
+            className="font-display text-5xl lg:text-6xl font-bold"
           >
             What Our Clients Say
           </motion.h2>
@@ -128,14 +131,14 @@ export default function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-lg md:text-xl opacity-70"
+            className="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl text-gray-300 font-light leading-relaxed "
           >
             Real results from real partnerships
           </motion.p>
         </motion.div>
 
         {/* Cards Container */}
-        <div className="flex items-center justify-center w-full min-h-[300px]">
+        <div className="flex items-center mx-1 justify-center w-full min-h-[300px]">
           {visibleCards > 0 && (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -164,7 +167,10 @@ export default function TestimonialsSection() {
               className="h-2 rounded-full transition-all duration-300"
               style={{
                 width: 40,
-                backgroundColor: index < visibleCards ? '#ABFF00' : 'rgba(156, 163, 175, 0.3)',
+                backgroundColor:
+                  index < visibleCards
+                    ? '#ABFF00'
+                    : 'rgba(156, 163, 175, 0.3)',
               }}
               initial={{ scaleX: 0.3 }}
               animate={{

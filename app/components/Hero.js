@@ -85,7 +85,7 @@ export default function Hero() {
             variants={textVariants}
           >
             Solving Problems
-            <br className="md:hidden" /> by Shipping{' '}
+            <br className="" /> by Shipping{' '}
             <span className="bg-gradient-to-r from-gray-900 to-gray-700 text-white px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg">
               Products
             </span>
