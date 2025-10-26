@@ -96,7 +96,7 @@ export default function StartShippingSection() {
                   className="flex-1 px-5 py-3 md:px-6 md:py-4 rounded-full bg-white/95 text-gray-800 placeholder:text-gray-400 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-white/50"
                   required
                 />
-            <div className="relative inline-block rounded-full p-[0.5px] bg-gradient-to-t from-[#3D578D] to-[#111827]">
+            <div className="relative w-1/2 md:w-full inline-block rounded-full p-[0.5px] bg-gradient-to-t from-[#3D578D] to-[#111827]">
               <button type='submit' className="w-full h-full rounded-full bg-gradient-to-t from-[#111827] to-[#3D578D] px-6 py-3 md:px-8 md:py-4 text-white text-sm font-medium transition-all whitespace-nowrap">
                 Contact Us
               </button>
