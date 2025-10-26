@@ -134,9 +134,9 @@ export default function Hero() {
         </motion.div>
 
         {/* Desktop Stacked Images - Hidden on mobile */}
-        <div className="relative z-50 hidden md:flex items-center justify-center flex-1 w-full pb-8 lg:pb-12">
+        <div className="relative z-50 md:-translate-y-5 lg:translate-y-0 md:scale-120 lg:scale-105 hidden md:flex items-end justify-center flex-1 w-full ">
           {/* Container for all stacked images */}
-          <div className="relative flex items-center justify-center w-full h-full">
+          <div className="relative flex items-end justify-center w-full h-full">
             {/* Left Image (wing) - starts stacked in center */}
             <div className="absolute animate-wing-left">
               <Image
