@@ -27,13 +27,13 @@ export default function ServiceCard({ title, description, imageSrc, emailSubject
         <div className="flex items-center justify-between">
           <a
             href={`mailto:contact@limegreen.studio?subject=${encodeURIComponent(emailSubject)}`}
-            className="inline-flex items-center bg-white/95 text-gray-900 px-2 pr-2 py-2 rounded-4xl text-xs font-medium shadow-sm hover:bg-white transition-colors"
+            className="inline-flex items-center bg-white/95 text-gray-900 px-2 pr-2 py-2 rounded-4xl text-xs font-medium shadow-sm transition-all duration-200 hover:bg-white hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
           >
             Let's Build Together...{"  "}
           </a>
           <a
             href={`mailto:contact@limegreen.studio?subject=${encodeURIComponent(emailSubject)}`}
-            className="w-8 h-8 rounded-full bg-white text-gray-900 flex items-center justify-center shadow-sm hover:bg-gray-100 transition-colors"
+            className="w-8 h-8 rounded-full bg-white text-gray-900 flex items-center justify-center shadow-sm transition-all duration-200 hover:bg-gray-100 hover:shadow-md hover:scale-105 active:scale-95"
             aria-label="Contact"
           >
             <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
