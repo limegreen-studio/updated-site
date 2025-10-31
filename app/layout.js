@@ -1,4 +1,5 @@
 import { Inter, Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -21,24 +22,65 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata = {
-  title: "Lime Green Studios: You Bring your Problem 👉 We Ship your Product",
-  description: "We take your idea from 0 to 1 in just 4 weeks. Lime Green Studios transforms your problems into shipped products with expert development, design, and strategy.",
-  keywords: "product development, startup development, MVP development, web development, app development, 0 to 1, product launch, software development agency, lime green studios",
-  authors: [{ name: "Lime Green Studios" }],
+  metadataBase: new URL('https://limegreen.studio'),
+  title: {
+    default: "Lime Green Studios - MVP Development & Product Development in 4 Weeks",
+    template: "%s | Lime Green Studios"
+  },
+  description: "Leading MVP development agency. We build and ship your product from 0 to 1 in just 4 weeks. Expert product development, rapid prototyping, and full-stack development for startups and enterprises.",
+  keywords: [
+    "MVP development",
+    "MVP development agency",
+    "product development",
+    "rapid MVP development",
+    "minimum viable product development",
+    "startup MVP development",
+    "MVP development company",
+    "product development agency",
+    "fast product development",
+    "4 week MVP",
+    "rapid product development",
+    "product launch",
+    "startup development",
+    "web development agency",
+    "app development agency",
+    "full-stack development",
+    "software development agency",
+    "0 to 1 product development",
+    "lean product development",
+    "agile MVP development",
+    "lime green studios"
+  ].join(", "),
+  authors: [{ name: "Lime Green Studios", url: "https://limegreen.studio" }],
   creator: "Lime Green Studios",
   publisher: "Lime Green Studios",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-    title: "Lime Green Studios: You Bring your Problem 👉 We Ship your Product",
-    description: "We take your idea from 0 to 1 in just 4 weeks. Transform your vision into reality.",
-    type: "website",
-    locale: "en_US",
+    title: "Lime Green Studios - MVP Development & Product Development in 4 Weeks",
+    description: "Leading MVP development agency. We build and ship your product from 0 to 1 in just 4 weeks. Expert product development for startups and enterprises.",
+    url: "https://limegreen.studio",
     siteName: "Lime Green Studios",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Lime Green Studios - MVP Development Agency"
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lime Green Studios: You Bring your Problem 👉 We Ship your Product",
-    description: "We take your idea from 0 to 1 in just 4 weeks",
+    title: "Lime Green Studios - MVP Development & Product Development",
+    description: "Leading MVP development agency. We ship your product from 0 to 1 in just 4 weeks.",
     creator: "@limegreenstudios",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -51,11 +93,31 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://limegreen.studio",
+  },
+  verification: {
+    google: "google-site-verification-code", // Replace with your actual verification code
+  },
+  category: "Technology",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="9bc71e9f-5605-4f32-9e87-fb92c41d3145"
+          strategy="afterInteractive"
+        />
+      </head>
       <body
         className={`${inter.variable} ${bricolageGrotesque.variable} ${instrumentSerif.variable} antialiased`}
       >
